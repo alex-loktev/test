@@ -1,0 +1,12 @@
+{%extends 'base.html'%}
+
+{%block body%}
+<div class="container mt-3">
+    <p>{{article.text|safe}}</p>
+    <p><h5>Прикреплённые документы:</h5></p>
+    {%if article.docfile%}
+    <p><a href="{{ article.docfile.url }}">{{ article.get_file_name }}</a></p>
+    {%endif%}
+    <p><a href="{%url 'update' pk=article.id %}" class="btn btn-primary mt-4">Изменить</a></p>
+</div>
+{%endblock%}
